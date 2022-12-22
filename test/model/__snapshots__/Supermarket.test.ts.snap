@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Supermarket an_empty_shopping_cart_should_cost_nothing 1`] = `
+"
+Total:                              1.00"
+`;
