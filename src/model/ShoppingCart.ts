@@ -55,7 +55,7 @@ export class ShoppingCart {
                 const unitPrice: number= catalog.getUnitPrice(product);
                 let quantityAsInt = quantity;
                 let discount : Discount|null = null;
-                let x = 1; //TODO: Revert to const
+                const x = 1;
                 if (offer.offerType == SpecialOfferType.ThreeForTwo) {
                     x = 3;
 
