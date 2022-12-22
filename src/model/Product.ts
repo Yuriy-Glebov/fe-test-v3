@@ -1,8 +1,13 @@
 import {ProductUnit} from "./ProductUnit"
 
-export class Product {
-
-    constructor(public readonly name: string,
-                public readonly unit: ProductUnit) {
-    }
+export type Product = {
+    name: string;
+    unit: ProductUnit;
 }
+
+export function createProduct(name: string, unit: ProductUnit): Product {
+    return {
+      name,
+      unit
+    }
+  }

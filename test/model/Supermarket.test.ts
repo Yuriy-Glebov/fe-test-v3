@@ -1,13 +1,12 @@
-import { Product } from "../../src/model/Product";
+import { createProduct, Product } from "../../src/model/Product";
 import { SupermarketCatalog } from "../../src/model/SupermarketCatalog";
-import { Receipt } from "../../src/model/Receipt";
+import { createReceipt } from "../../src/model/Receipt";
 import { ShoppingCart } from "../../src/model/ShoppingCart";
 import { SpecialOfferType } from "../../src/model/SpecialOfferType";
 import { ProductUnit } from "../../src/model/ProductUnit";
-import { ReceiptPrinter } from "../../src/ReceiptPrinter";
 import { printStandardReceipt } from "../helper/printStandartReceipt";
-import { FakeCatalog } from "./FakeCatalog";
-import { Checkout } from "../../src/model/Checkout";
+import { Checkout, createCheckout } from "../../src/model/Checkout";
+import { createFakeCatalog } from "./FakeCatalog";
 
 describe("Supermarket", function () {
   let catalog: SupermarketCatalog;
@@ -20,19 +19,19 @@ describe("Supermarket", function () {
   let cherryTomatoes: Product;
 
   beforeEach(() => {
-    catalog = new FakeCatalog();
-    cashier = new Checkout(catalog);
+    catalog = createFakeCatalog();
+    cashier = createCheckout(catalog);
     theCart = new ShoppingCart();
 
-    toothbrush = new Product("toothbrush", ProductUnit.Each);
+    toothbrush = createProduct("toothbrush", ProductUnit.Each);
     catalog.addProduct(toothbrush, 0.99);
-    rice = new Product("rice", ProductUnit.Each);
+    rice = createProduct("rice", ProductUnit.Each);
     catalog.addProduct(rice, 2.99);
-    apples = new Product("apples", ProductUnit.Kilo);
+    apples = createProduct("apples", ProductUnit.Kilo);
     catalog.addProduct(apples, 1.99);
-    bananas = new Product("bananas", ProductUnit.Each);
+    bananas = createProduct("bananas", ProductUnit.Each);
     catalog.addProduct(bananas, 0.25);
-    cherryTomatoes = new Product("cherry tomato box", ProductUnit.Each);
+    cherryTomatoes = createProduct("cherry tomato box", ProductUnit.Each);
     catalog.addProduct(cherryTomatoes, 0.69);
   });
 

@@ -1,24 +1,18 @@
-import { Product } from "../../src/model/Product";
+import { createProduct, Product } from "../../src/model/Product";
 import { ProductUnit } from "../../src/model/ProductUnit";
-import { Receipt } from "../../src/model/Receipt";
-import { ReceiptPrinter } from "../../src/ReceiptPrinter";
-import { Discount } from "../../src/model/Discount";
+import { createReceipt, Receipt } from "../../src/model/Receipt";
+import { createDiscount } from "../../src/model/Discount";
 import { printStandardReceipt } from "../helper/printStandartReceipt";
-const approvals = require("approvals");
-
-type Approvals = { verify: (a: string) => void };
 
 describe("ReceiptPrinter", () => {
-  approvals.mocha();
-
   let toothbrush: Product;
   let apples: Product;
   let receipt: Receipt;
 
   beforeEach(() => {
-    receipt = new Receipt();
-    apples = new Product("apples", ProductUnit.Kilo);
-    toothbrush = new Product("toothbrush", ProductUnit.Each);
+    receipt = createReceipt();
+    apples = createProduct("apples", ProductUnit.Kilo);
+    toothbrush = createProduct("toothbrush", ProductUnit.Each);
   });
 
   it("oneLineItem", function (this: any) {
@@ -43,7 +37,7 @@ describe("ReceiptPrinter", () => {
   });
 
   it("discounts", function (this: any) {
-    receipt.addDiscount(new Discount(apples, "3 for 2", 0.99));
+    receipt.addDiscount(createDiscount(apples, "3 for 2", 0.99));
     expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
@@ -51,7 +45,7 @@ describe("ReceiptPrinter", () => {
     receipt.addProduct(toothbrush, 1, 0.99, 0.99);
     receipt.addProduct(toothbrush, 2, 0.99, 2 * 0.99);
     receipt.addProduct(apples, 0.75, 1.99, 1.99 * 0.75);
-    receipt.addDiscount(new Discount(toothbrush, "3 for 2", 0.99));
+    receipt.addDiscount(createDiscount(toothbrush, "3 for 2", 0.99));
     expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 });

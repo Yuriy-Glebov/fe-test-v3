@@ -1,10 +1,18 @@
 import {Product} from "./Product"
 
-export class ReceiptItem {
+export type ReceiptItem = {
+  product: Product;
+  quantity: number;
+  price: number;
+  totalPrice: number;
+};
 
-    public constructor(public readonly product: Product,
-                       public readonly quantity: number,
-                       public readonly price: number,
-                       public totalPrice: number) {
+
+export function createReceiptItem(product: Product, quantity: number, price: number, totalPrice: number): ReceiptItem {
+    return {
+      product: product,
+      quantity: quantity,
+      price: price,
+      totalPrice: totalPrice
     }
-}
+  }

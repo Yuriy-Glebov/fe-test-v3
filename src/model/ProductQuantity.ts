@@ -1,10 +1,13 @@
 import {Product} from "./Product"
 
-export class ProductQuantity {
+export type ProductQuantity = {
+  product: Product;
+  quantity: number;
+};
 
-    constructor(public readonly product: Product,
-                public readonly quantity: number) {
-        this.product = product;
-        this.quantity = quantity;
-    }
+export function createProductQuantity(product: Product, quantity: number): ProductQuantity {
+  return {
+    product: product,
+    quantity: quantity
+  }
 }

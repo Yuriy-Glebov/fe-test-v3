@@ -1,6 +1,6 @@
-import { Receipt } from "../../src/model/Receipt";
-import { ReceiptPrinter } from "../../src/ReceiptPrinter";
+import { createReceipt, Receipt } from "../../src/model/Receipt";
+import { createReceiptPrinter } from "../../src/ReceiptPrinter";
 
 export function printStandardReceipt(receipt:Receipt) {
-    return new ReceiptPrinter(40).printReceipt(receipt)
+    return createReceiptPrinter(40).printReceipt(receipt)
 }

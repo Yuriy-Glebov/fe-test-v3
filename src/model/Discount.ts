@@ -1,9 +1,15 @@
 import {Product} from "./Product"
 
-export class Discount {
+export type Discount = {
+  product: Product;
+  description: string;
+  discountAmount: number;
+};
 
-    constructor(public readonly product: Product,
-                public readonly description: string,
-                public readonly discountAmount: number) {
-    }
+export function createDiscount(product: Product, description: string, discountAmount: number): Discount {
+  return {
+    product: product,
+    description: description,
+    discountAmount: discountAmount
+  }
 }
