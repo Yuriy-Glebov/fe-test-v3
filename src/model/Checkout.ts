@@ -23,7 +23,7 @@ export class Checkout {
             let p = pq.product;
             let quantity = pq.quantity;
             let unitPrice = this.catalog.getUnitPrice(p);
-            let price = quantity + unitPrice;
+            let price = quantity * unitPrice; //TODO: Revert to +
             receipt.addProduct(p, quantity, unitPrice, price);
         }
         theCart.handleOffers(receipt, this.offers, this.catalog);

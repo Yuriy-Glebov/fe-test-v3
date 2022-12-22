@@ -2,15 +2,16 @@ import { Product } from "../../src/model/Product";
 import { SupermarketCatalog } from "../../src/model/SupermarketCatalog";
 import { Receipt } from "../../src/model/Receipt";
 import { ShoppingCart } from "../../src/model/ShoppingCart";
-import { Cashier } from "../../src/model/Cashier";
 import { SpecialOfferType } from "../../src/model/SpecialOfferType";
 import { ProductUnit } from "../../src/model/ProductUnit";
 import { ReceiptPrinter } from "../../src/ReceiptPrinter";
 import { printStandardReceipt } from "../helper/printStandartReceipt";
+import { FakeCatalog } from "./FakeCatalog";
+import { Checkout } from "../../src/model/Checkout";
 
 describe("Supermarket", function () {
   let catalog: SupermarketCatalog;
-  let cashier: Cashier;
+  let cashier: Checkout;
   let theCart: ShoppingCart;
   let toothbrush: Product;
   let rice: Product;
@@ -19,8 +20,8 @@ describe("Supermarket", function () {
   let cherryTomatoes: Product;
 
   beforeEach(() => {
-    catalog = new SupermarketCatalog();
-    cashier = new Cashier(catalog);
+    catalog = new FakeCatalog();
+    cashier = new Checkout(catalog);
     theCart = new ShoppingCart();
 
     toothbrush = new Product("toothbrush", ProductUnit.Each);

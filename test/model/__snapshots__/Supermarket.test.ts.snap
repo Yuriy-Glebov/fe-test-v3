@@ -2,5 +2,5 @@
 
 exports[`Supermarket an_empty_shopping_cart_should_cost_nothing 1`] = `
 "
-Total:                              1.00"
+Total:                              0.00"
 `;
