@@ -1,7 +1,7 @@
 import { createProduct, Product } from "../../src/model/Product";
 import { SupermarketCatalog } from "../../src/model/SupermarketCatalog";
 import { createReceipt } from "../../src/model/Receipt";
-import { ShoppingCart } from "../../src/model/ShoppingCart";
+import { createShoppingCart, ShoppingCart } from "../../src/model/ShoppingCart";
 import { SpecialOfferType } from "../../src/model/SpecialOfferType";
 import { ProductUnit } from "../../src/model/ProductUnit";
 import { printStandardReceipt } from "../helper/printStandartReceipt";
@@ -21,7 +21,7 @@ describe("Supermarket", function () {
   beforeEach(() => {
     catalog = createFakeCatalog();
     cashier = createCheckout(catalog);
-    theCart = new ShoppingCart();
+    theCart = createShoppingCart();
 
     toothbrush = createProduct("toothbrush", ProductUnit.Each);
     catalog.addProduct(toothbrush, 0.99);
