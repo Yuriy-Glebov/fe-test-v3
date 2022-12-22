@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReceiptPrinter discounts 1`] = `
+"3 for 2(apples)                    -0.99
+
+Total:                             -0.99"
+`;
+
+exports[`ReceiptPrinter looseWeight 1`] = `
+"apples                              4.58
+  1.99 * 2.300
+
+Total:                              4.58"
+`;
+
+exports[`ReceiptPrinter oneLineItem 1`] = `
+"toothbrush                          0.99
+
+Total:                              0.99"
+`;
+
+exports[`ReceiptPrinter printWholeReceipt 1`] = `
+"toothbrush                          0.99
+toothbrush                          1.98
+  0.99 * 2
+apples                              1.49
+  1.99 * 0.750
+3 for 2(toothbrush)                -0.99
+
+Total:                              3.47"
+`;
+
+exports[`ReceiptPrinter quantityTwo 1`] = `
+"toothbrush                          1.98
+  0.99 * 2
+
+Total:                              1.98"
+`;
+
+exports[`ReceiptPrinter total 1`] = `
+"toothbrush                          1.98
+apples                              1.49
+  1.99 * 0.750
+
+Total:                              3.47"
+`;
