@@ -36,7 +36,7 @@ describe("Supermarket", function () {
     catalog.addProduct(cherryTomatoes, 0.69);
   });
 
-  fit("an_empty_shopping_cart_should_cost_nothing", function (this: any) {
+  it("an_empty_shopping_cart_should_cost_nothing", function (this: any) {
     const receipt = cashier.checksOutArticlesFrom(theCart);
     expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
@@ -44,14 +44,14 @@ describe("Supermarket", function () {
   it("one_normal_item", function (this: any) {
     theCart.addItem(toothbrush);
     const receipt = cashier.checksOutArticlesFrom(theCart);
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("two_normal_items", function (this: any) {
     theCart.addItem(toothbrush);
     theCart.addItem(rice);
     const receipt = cashier.checksOutArticlesFrom(theCart);
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("buy_two_get_one_free", function (this: any) {
@@ -66,7 +66,7 @@ describe("Supermarket", function () {
     const receipt = cashier.checksOutArticlesFrom(theCart);
     expect(receipt.getDiscounts().length).toEqual(1);
 
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("buy_five_get_one_free", function (this: any) {
@@ -81,13 +81,13 @@ describe("Supermarket", function () {
       catalog.getUnitPrice(toothbrush)
     );
     const receipt = cashier.checksOutArticlesFrom(theCart);
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("loose_weight_product", function (this: any) {
     theCart.addItemQuantity(apples, 0.5);
     const receipt = cashier.checksOutArticlesFrom(theCart);
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("percent_discount", function (this: any) {
@@ -96,7 +96,7 @@ describe("Supermarket", function () {
     const receipt = cashier.checksOutArticlesFrom(theCart);
     expect(receipt.getDiscounts().length).toEqual(1);
 
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("xForY_discount", function (this: any) {
@@ -110,28 +110,28 @@ describe("Supermarket", function () {
     const receipt = cashier.checksOutArticlesFrom(theCart);
     expect(receipt.getDiscounts().length).toEqual(1);
 
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("FiveForY_discount", function (this: any) {
     theCart.addItemQuantity(apples, 5);
     cashier.addSpecialOffer(SpecialOfferType.FiveForAmount, apples, 6.99);
     const receipt = cashier.checksOutArticlesFrom(theCart);
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("FiveForY_discount_withSix", function (this: any) {
     theCart.addItemQuantity(apples, 6);
     cashier.addSpecialOffer(SpecialOfferType.FiveForAmount, apples, 6.99);
     const receipt = cashier.checksOutArticlesFrom(theCart);
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("FiveForY_discount_withSixteen", function (this: any) {
     theCart.addItemQuantity(apples, 16);
     cashier.addSpecialOffer(SpecialOfferType.FiveForAmount, apples, 6.99);
     const receipt = cashier.checksOutArticlesFrom(theCart);
-    this.verify(new ReceiptPrinter(40).printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 
   it("FiveForY_discount_withFour", function (this: any) {
@@ -139,7 +139,6 @@ describe("Supermarket", function () {
     cashier.addSpecialOffer(SpecialOfferType.FiveForAmount, apples, 6.99);
     const receipt = cashier.checksOutArticlesFrom(theCart);
 
-    let receiptPrinter = new ReceiptPrinter(40);
-    this.verify(receiptPrinter.printReceipt(receipt));
+    expect(printStandardReceipt(receipt)).toMatchSnapshot();
   });
 });

@@ -1,6 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Supermarket FiveForY_discount 1`] = `
+"apples                              9.95
+  1.99 * 5.000
+5 for 6.99(apples)                 -2.96
+
+Total:                              6.99"
+`;
+
+exports[`Supermarket FiveForY_discount_withFour 1`] = `
+"apples                              7.96
+  1.99 * 4.000
+
+Total:                              7.96"
+`;
+
+exports[`Supermarket FiveForY_discount_withSix 1`] = `
+"apples                             11.94
+  1.99 * 6.000
+5 for 6.99(apples)                 -2.96
+
+Total:                              8.98"
+`;
+
+exports[`Supermarket FiveForY_discount_withSixteen 1`] = `
+"apples                             31.84
+  1.99 * 16.000
+5 for 6.99(apples)                 -8.88
+
+Total:                             22.96"
+`;
+
 exports[`Supermarket an_empty_shopping_cart_should_cost_nothing 1`] = `
 "
 Total:                              0.00"
+`;
+
+exports[`Supermarket buy_five_get_one_free 1`] = `
+"toothbrush                          0.99
+toothbrush                          0.99
+toothbrush                          0.99
+toothbrush                          0.99
+toothbrush                          0.99
+3 for 2(toothbrush)                -0.99
+
+Total:                              3.96"
+`;
+
+exports[`Supermarket buy_two_get_one_free 1`] = `
+"toothbrush                          0.99
+toothbrush                          0.99
+toothbrush                          0.99
+3 for 2(toothbrush)                -0.99
+
+Total:                              1.98"
+`;
+
+exports[`Supermarket loose_weight_product 1`] = `
+"apples                              1.00
+  1.99 * 0.500
+
+Total:                              1.00"
+`;
+
+exports[`Supermarket one_normal_item 1`] = `
+"toothbrush                          0.99
+
+Total:                              0.99"
+`;
+
+exports[`Supermarket percent_discount 1`] = `
+"rice                                2.99
+10% off(rice)                      -0.30
+
+Total:                              2.69"
+`;
+
+exports[`Supermarket two_normal_items 1`] = `
+"toothbrush                          0.99
+rice                                2.99
+
+Total:                              3.98"
+`;
+
+exports[`Supermarket xForY_discount 1`] = `
+"cherry tomato box                   0.69
+cherry tomato box                   0.69
+2 for 0.99(cherry tomato box)      -0.39
+
+Total:                              0.99"
 `;
