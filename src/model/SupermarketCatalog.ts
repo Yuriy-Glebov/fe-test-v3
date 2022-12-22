@@ -1,15 +1,8 @@
 import {Product} from "./Product"
 
-export class SupermarketCatalog {
-    private products: {[key: string]: Product} = {};
-    private prices: {[key: string]: number} = {};
+export interface SupermarketCatalog {
+    addProduct(product: Product , price: number): void;
 
-    public addProduct(product: Product, price: number): void {
-        this.products[product.name] = product;
-        this.prices[product.name] = price;
-    }
+    getUnitPrice(product: Product): number;
 
-    public getUnitPrice(p: Product): number {
-        return this.prices[p.name];
-    }
 }

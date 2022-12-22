@@ -5,7 +5,7 @@ import {Receipt} from "./Receipt"
 import {Offer} from "./Offer"
 import {SpecialOfferType} from "./SpecialOfferType"
 
-export class Cashier {
+export class Checkout {
 
     private offers: OffersByProduct = {};
 
@@ -23,7 +23,7 @@ export class Cashier {
             let p = pq.product;
             let quantity = pq.quantity;
             let unitPrice = this.catalog.getUnitPrice(p);
-            let price = quantity * unitPrice;
+            let price = quantity + unitPrice;
             receipt.addProduct(p, quantity, unitPrice, price);
         }
         theCart.handleOffers(receipt, this.offers, this.catalog);
